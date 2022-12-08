@@ -1,32 +1,35 @@
-const slider = new Siema({
+const sliderLocations = new Siema({
   selector: ".locations__slider",
   loop: true,
   perPage: 3,
 });
 document
   .querySelector(".locations__cont .slider__arrow--prev")
-  .addEventListener("click", () => slider.prev());
+  .addEventListener("click", () => sliderLocations.prev());
 document
   .querySelector(".locations__cont .slider__arrow--next")
-  .addEventListener("click", () => slider.next());
+  .addEventListener("click", () => sliderLocations.next());
 
-// function onChangeSlider() {
-//   const dots = document.querySelectorAll(".slider__dot");
-//   dots.forEach((dot) => dot.classList.remove("slider__dot--active"));
-//   dots[slider.currentSlide].classList.add("slider__dot--active");
-// }
+const sliderPortfolio = new Siema({
+  selector: ".portfolio__slider",
+  loop: true,
+  perPage: 3,
+  onChange: onChangeSlider,
+});
+document
+  .querySelector(".portfolio__cont .slider__arrow--prev")
+  .addEventListener("click", () => sliderPortfolio.prev());
+document
+  .querySelector(".portfolio__cont .slider__arrow--next")
+  .addEventListener("click", () => sliderPortfolio.next());
 
-// const sliderDelivery = new Siema({
-//   selector: ".delivery__list",
-//   loop: true,
-//   perPage: 3,
-// });
-// document
-//   .querySelector(".delivery .slider__arrow--prev")
-//   .addEventListener("click", () => sliderDelivery.prev());
-// document
-//   .querySelector(".delivery .slider__arrow--next")
-//   .addEventListener("click", () => sliderDelivery.next());
+function onChangeSlider() {
+  const dots = document.querySelectorAll(".portfolio .slider__dot");
+  dots.forEach((dot) => dot.classList.remove("slider__dot--active"));
+  console.log(dots, sliderPortfolio.currentSlide);
+  const currentSlide = (sliderPortfolio.currentSlide + 5) % 5;
+  dots[currentSlide].classList.add("slider__dot--active");
+}
 
 // const sliderServices = new Siema({
 //   selector: ".services__list",

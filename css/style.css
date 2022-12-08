@@ -181,9 +181,9 @@ body {
 .header {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 80px;
-  position: fixed;
+  /* position: fixed; */
   z-index: 10;
   background: #ffffff;
   color: #4a4a4a;
@@ -280,27 +280,19 @@ body {
 .portfolio__items {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .portfolio__slider {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
 }
 
-.portfolio__slid {
+.portfolio__slide {
   width: 480px;
   height: 544px;
-  background-image: url(../img/portfolio/01.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.portfolio__slid-01 {
-  background-image: url(../img/portfolio/02.jpg);
-}
-
-.portfolio__slid-02 {
-  background-image: url(../img/portfolio/03.jpg);
 }
 
 .slider__arrow {
@@ -331,6 +323,7 @@ body {
 .slider__pagination {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 14px;
   z-index: 5;
   width: 100%;
