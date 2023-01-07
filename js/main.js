@@ -43,16 +43,19 @@ const sliderReviews = new Siema({
 //   .querySelector(".locations__cont .slider__arrow--next")
 //   .addEventListener("click", () => sliderLocations.next());
 
+let type;
 const giftBtn = document.querySelector(".gift__btn");
 const giftBtn2 = document.querySelector(".banner__btn");
 const giftModal = document.querySelector(".modal--gift");
 const giftClose = document.querySelector(".gift__form-close");
 
 giftBtn.addEventListener("click", () => {
+  type = "gift";
   giftModal.classList.add("modal--open");
 });
 
 giftBtn2.addEventListener("click", () => {
+  type = "consultation";
   giftModal.classList.add("modal--open");
 });
 
@@ -65,6 +68,19 @@ const giftThanksModal = document.querySelector(".modal--gift-thanks");
 const giftThanksClose = document.querySelector(".gift__thanks-close");
 
 giftThanksBtn.addEventListener("click", () => {
+  const name = giftModal.querySelector('input[name="name"]').value;
+  const email = giftModal.querySelector('input[name="email"]').value;
+  const phone = giftModal.querySelector('input[name="phone"]').value;
+  console.log(name, email, phone);
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("phone", phone);
+  formData.append("type", type);
+  fetch("/system/applications.php", {
+    method: "POST",
+    body: formData,
+  });
   giftThanksModal.classList.add("modal--open");
   giftModal.classList.remove("modal--open");
 });
@@ -90,6 +106,21 @@ const locThanksModal = document.querySelector(".modal--locations-thanks");
 const locThanksClose = document.querySelector(".locations__thanks-close");
 
 locThanksBtn.addEventListener("click", () => {
+  const name = locModal.querySelector('input[name="name"]').value;
+  const email = locModal.querySelector('input[name="email"]').value;
+  const phone = locModal.querySelector('input[name="phone"]').value;
+  const location = locModal.querySelector('select[name="location"]').value;
+  console.log(name, email, phone, location);
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  formData.append("phone", phone);
+  formData.append("location", location);
+  formData.append("type", "location");
+  fetch("/system/applications.php", {
+    method: "POST",
+    body: formData,
+  });
   locThanksModal.classList.add("modal--open");
   locModal.classList.remove("modal--open");
 });
@@ -115,6 +146,20 @@ const reviewsThanksModal = document.querySelector(".modal--reviews-thanks");
 const reviewsThanksClose = document.querySelector(".reviews__thanks-close");
 
 reviewsThanksBtn.addEventListener("click", () => {
+  const name = reviewsModal.querySelector('input[name="name"]').value;
+  const email = reviewsModal.querySelector('input[name="email"]').value;
+  const file = reviewsModal.querySelector('input[name="file"]').value;
+  const text = reviewsModal.querySelector('textarea[name="text"]').value;
+  console.log(name, email, file, text);
+  const formData = new FormData();
+  formData.append("name", name);
+  formData.append("email", email);
+  // formData.append("file", file);
+  formData.append("text", text);
+  fetch("/system/review.php", {
+    method: "POST",
+    body: formData,
+  });
   reviewsThanksModal.classList.add("modal--open");
   reviewsModal.classList.remove("modal--open");
 });

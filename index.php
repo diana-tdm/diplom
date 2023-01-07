@@ -1,3 +1,8 @@
+<?php
+$path = $_SERVER['DOCUMENT_ROOT'];
+require_once "$path/system/db.php";
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -14,29 +19,11 @@
     <link rel="stylesheet" href="fonts/css/all.min.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
+
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="header__item">
-          <a href="" class="header__logo">
-            <img src="img/header/logo.svg" alt="logo" />
-          </a>
-          <div class="header__menu">
-            <ul class="header__list">
-              <li>Портфолио</li>
-              <li>Виды работ</li>
-              <li>О фотостудии</li>
-              <li>Услуги и цены</li>
-              <li>Контакты</li>
-            </ul>
-          </div>
-          <div class="header__button-phone">
-            <button class="header__btn">ОБРАТНЫЙ ЗВОНОК</button>
-            <div class="header__phone">+7 (499) 344 60 91</div>
-          </div>
-        </div>
-      </div>
-    </header>
+    <?php
+    require_once "$path/components/header.php"; 
+    ?>
 
     <section class="banner">
       <div class="container">
@@ -112,115 +99,9 @@
       </div>
     </section>
 
-    <section class="locations">
-      <div class="container">
-        <h3 class="locations__title title">Наши локации</h3>
-        <div class="locations__cont">
-          <div class="locations__list">
-            <div class="locations__slider">
-              <div
-                class="locations__slide"
-                style="
-                  background-image: linear-gradient(
-                      0deg,
-                      rgba(4, 5, 17, 0.9) 0%,
-                      rgba(88, 88, 88, 0) 65%
-                    ),
-                    url(img/locations/loc01.jpg);
-                "
-              >
-                <div>Локация 1</div>
-              </div>
-              <div
-                class="locations__slide locations__slide-01"
-                style="
-                  background-image: linear-gradient(
-                      0deg,
-                      rgba(4, 5, 17, 0.9) 0%,
-                      rgba(88, 88, 88, 0) 65%
-                    ),
-                    url(img/locations/loc02.jpg);
-                "
-              >
-                <div>Локация 2</div>
-              </div>
-              <div
-                class="locations__slide locations__slide-02"
-                style="
-                  background-image: linear-gradient(
-                      0deg,
-                      rgba(4, 5, 17, 0.8) 0%,
-                      rgba(88, 88, 88, 0) 65%
-                    ),
-                    url(img/locations/loc03.jpg);
-                "
-              >
-                <div>Локация 3</div>
-              </div>
-              <div
-                class="locations__slide"
-                style="
-                  background-image: linear-gradient(
-                      0deg,
-                      rgba(4, 5, 17, 0.9) 0%,
-                      rgba(88, 88, 88, 0) 65%
-                    ),
-                    url(img/locations/loc01.jpg);
-                "
-              >
-                <div>Локация 4</div>
-              </div>
-              <div
-                class="locations__slide locations__slide-01"
-                style="
-                  background-image: linear-gradient(
-                      0deg,
-                      rgba(4, 5, 17, 0.9) 0%,
-                      rgba(88, 88, 88, 0) 65%
-                    ),
-                    url(img/locations/loc02.jpg);
-                "
-              >
-                <div>Локация 5</div>
-              </div>
-              <div
-                class="locations__slide locations__slide-02"
-                style="
-                  background-image: linear-gradient(
-                      0deg,
-                      rgba(4, 5, 17, 0.8) 0%,
-                      rgba(88, 88, 88, 0) 65%
-                    ),
-                    url(img/locations/loc03.jpg);
-                "
-              >
-                <div>Локация 6</div>
-              </div>
-              <div
-                class="locations__slide locations__slide-01"
-                style="
-                  background-image: linear-gradient(
-                      0deg,
-                      rgba(4, 5, 17, 0.9) 0%,
-                      rgba(88, 88, 88, 0) 65%
-                    ),
-                    url(img/locations/loc02.jpg);
-                "
-              >
-                <div>Локация 7</div>
-              </div>
-            </div>
-            <button class="locations__btn button">выбрать локацию</button>
-          </div>
-          <button class="slider__arrow slider__arrow--prev">
-            <i class="fa-solid fa-chevron-left fa-3x"></i>
-          </button>
-          <button class="slider__arrow slider__arrow--next">
-            <i class="fa-solid fa-chevron-right fa-3x"></i>
-          </button>
-        </div>
-      </div>
-    </section>
+    <?php
+    require_once "$path/components/locations.php"; 
+    ?>
 
     <section class="photo-studio">
       <h3 class="photo-studio__title title">Оформление фотостудии</h3>
@@ -698,39 +579,9 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__menu">
-          <div class="footer_items">
-            <img src="img/footer/logo-ft.svg" alt="logo" />
-            <div class="footer__items-link">
-              <a href="#">Портфолио</a>
-              <a href="#">Виды работ</a>
-              <a href="#">О фотостудии</a>
-              <a href="#">Услуги и цены</a>
-              <a href="#">Отзывы</a>
-              <a href="#">Контакты</a>
-            </div>
-          </div>
-        </div>
-        <div class="footer__social">
-          <div class="footer__social-text">Наши социцальные сети:</div>
-          <a href="https://www.instagram.com/" target="_blank">
-            <i class="fa-brands fa-instagram fa-2x"></i>
-          </a>
-          <a href="https://ru-ru.facebook.com/" target="_blank">
-            <i class="fa-brands fa-facebook-square fa-2x"></i>
-          </a>
-
-          <a href="https://vk.com/" target="_blank">
-            <i class="fa-brands fa-vk fa-2x"></i>
-          </a>
-          <a href="https://wa.me/79000000000" target="_blank">
-            <i class="fa-brands fa-whatsapp fa-2x"></i>
-          </a>
-        </div>
-      </div>
-    </footer>
+    <?php
+    require_once "$path/components/footer.php"; 
+    ?>
 
     <div class="modal modal--gift">
       <div class="gift__form">
@@ -748,17 +599,19 @@
             <label class="gift__form-label label">
               Имя
               <input
-                class="gift__form-input input"
+                class="gift__form-input input "
                 type="text"
                 placeholder="Введите ваше имя"
+                name="name"
               />
             </label>
             <label class="gift__form-label label">
               E-mail
               <input
                 class="gift__form-input input"
-                type="text"
+                type="email"
                 placeholder="Введите ваш E-mail"
+                name="email"
               />
             </label>
             <label class="gift__form-label label">
@@ -767,6 +620,7 @@
                 class="gift__form-input input"
                 type="text"
                 placeholder="Введите ваше Телефон"
+                name="phone"
               />
             </label>
             <button class="gift__form-btn button">Отправить</button>
@@ -814,14 +668,16 @@
                 class="locations__form-input input"
                 type="text"
                 placeholder="Введите ваше имя"
+                name="name"
               />
             </label>
             <label class="locations__form-label label">
               E-mail
               <input
                 class="locations__form-input input"
-                type="text"
+                type="email"
                 placeholder="Введите ваш E-mail"
+                name="email"
               />
             </label>
             <label class="locations__form-label label">
@@ -830,18 +686,19 @@
                 class="locations__form-input input"
                 type="text"
                 placeholder="Введите ваше Телефон"
+                name="phone"
               />
             </label>
             <label class="locations__form-label label">
               Локация
               <select
                 class="locations__form-select input"
-                type="text"
                 placeholder="Выберите локацию"
+                name="location"
               >
-                <option value="">Локация 1</option>
-                <option value="">Локация 2</option>
-                <option value="">Локация 3</option>
+                <option value="Локация 1">Локация 1</option>
+                <option value="Локация 2">Локация 2</option>
+                <option value="Локация 3">Локация 3</option>
               </select>
             </label>
             <button class="locations__form-btn button">Отправить</button>
@@ -884,20 +741,22 @@
                 class="reviews__form-input input"
                 type="text"
                 placeholder="Введите ваше имя"
+                name="name"
               />
             </label>
             <label class="reviews__form-label label">
               E-mail
               <input
                 class="reviews__form-input input"
-                type="text"
+                type="email"
                 placeholder="Введите ваш E-mail"
+                name="email"
               />
             </label>
             <label class="reviews__form-label label">
               Фото
               <div class="input">
-                <input class="reviews__form-file" type="file" />
+                <input class="reviews__form-file" type="file" name="file" />
                 <button class="reviews__btn-file">Загрузите фотографию</button>
               </div>
             </label>
@@ -907,6 +766,7 @@
                 class="reviews__form-textarea input"
                 rows="5"
                 placeholder="Введите ваш отзыв"
+                name="text"
               ></textarea>
             </label>
             <button class="reviews__form-btn button">Отправить</button>
